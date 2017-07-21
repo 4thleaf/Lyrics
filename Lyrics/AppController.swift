@@ -354,7 +354,7 @@ class AppController: NSObject, NSUserNotificationCenterDelegate {
         }
         let panel = NSSavePanel()
         panel.allowedFileTypes = ["png",  "jpg", "jpf", "bmp", "gif", "tiff"]
-        panel.nameFieldStringValue = currentSongTitle + " - " + currentArtist
+        panel.nameFieldStringValue = currentArtist + " - " + currentSongTitle
         panel.isExtensionHidden = true
         if panel.runModal() == NSFileHandlingPanelOKButton {
             try? artworkData!.write(to: panel.url!, options: [])
@@ -480,7 +480,7 @@ class AppController: NSObject, NSUserNotificationCenterDelegate {
         }
         let songTitle:String = currentSongTitle.replacingOccurrences(of: "/", with: "&")
         let artist:String = currentArtist.replacingOccurrences(of: "/", with: "&")
-        let lrcFilePath = (savingPath as NSString).appendingPathComponent("\(songTitle) - \(artist).lrc")
+        let lrcFilePath = (savingPath as NSString).appendingPathComponent("\(artist) - \(songTitle).lrc")
         
         let panel: NSSavePanel = NSSavePanel()
         panel.allowedFileTypes = ["lrc","txt"]
@@ -795,7 +795,7 @@ class AppController: NSObject, NSUserNotificationCenterDelegate {
         
         let titleForSaving = songTitle.replacingOccurrences(of: "/", with: "&")
         let artistForSaving = artist.replacingOccurrences(of: "/", with: "&")
-        let lrcFilePath = (savingPath as NSString).appendingPathComponent("\(titleForSaving) - \(artistForSaving).lrc")
+        let lrcFilePath = (savingPath as NSString).appendingPathComponent("\(artistForSaving) - \(titleForSaving).lrc")
         
         if fm.fileExists(atPath: lrcFilePath) {
             do {
@@ -821,7 +821,7 @@ class AppController: NSObject, NSUserNotificationCenterDelegate {
         }
         let songTitle: String = theTitle.replacingOccurrences(of: "/", with: "&")
         let artist: String = theArtist.replacingOccurrences(of: "/", with: "&")
-        let lrcFilePath = (savingPath as NSString).appendingPathComponent("\(songTitle) - \(artist).lrc")
+        let lrcFilePath = (savingPath as NSString).appendingPathComponent("\(artist) - \(songTitle).lrc")
         if  FileManager.default.fileExists(atPath: lrcFilePath) {
             let lrcContents: String?
             do {
